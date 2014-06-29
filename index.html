@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+
+<body>
+
+    <section class="profile-wrapper">
+    </section>
+
+    <script id="profile-template" type="text/x-handlebars-template">
+        <h1>Profile</h1>
+        <div class="profile-name">{{name}}</div>
+        <img class="profile-avatar" src="{{avatarImgUrl}}">
+        <div class="profile-birthday">{{formatDate birthday}}</div>
+        <div class="profile-birthplace">{{birthplace}}</div>
+        <textarea class="profile-introduction">{{introduction}}</textarea>
+    </script>
+
+    <script src="./dest/app.js"></script>
+</body>
+
+</html>
