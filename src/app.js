@@ -1,5 +1,9 @@
 require('./setup')();
 
+if (global.mocha) {
+    return;
+}
+
 var UserModel = require('./models/user');
 var ProfileView = require('./views/profile');
 

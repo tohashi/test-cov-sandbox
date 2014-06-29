@@ -5,7 +5,8 @@ var UserModel = Backbone.Model.extend({
         'avatarImgUrl': 'avatar.png',
         'birthday': '19700101',
         'birthplace': '東京都',
-        'introduction': 'よろしくお願いします'
+        'introduction': 'よろしくお願いします',
+        'twitter': false
     },
 
     url: '/user',

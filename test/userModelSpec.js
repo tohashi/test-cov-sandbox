@@ -21,9 +21,10 @@ module.exports = function() {
                         'name': 'test',
                         'id': 123,
                         'avatarImgUrl': 'avatar_123.png',
-                        'birthday': '2014/07/01',
+                        'birthday': '20140701',
                         'birthplace': '北海道',
-                        'introduction': 'Hello'
+                        'introduction': 'Hello',
+                        'twitter': false
                     };
 
                     userModel.fetch();

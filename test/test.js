@@ -18,7 +18,7 @@ afterEach(function() {
 
 require('./userModelSpec')();
 require('./profileViewSpec')();
-require('./profileSpec');
+require('./profileSpec')();
 
 if (global.mochaPhantomJS) {
     mochaPhantomJS.run();

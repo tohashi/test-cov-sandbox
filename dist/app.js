@@ -17807,7 +17807,12 @@ return jQuery;
 }).call(this);
 
 },{}],21:[function(require,module,exports){
+(function (global){
 require('./setup')();
+
+if (global.mocha) {
+    return;
+}
 
 var UserModel = require('./models/user');
 var ProfileView = require('./views/profile');
@@ -17820,6 +17825,7 @@ var profileView = new ProfileView({
 //userModel.fetch();
 userModel.trigger('sync');
 
+}).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./models/user":22,"./setup":23,"./views/profile":24}],22:[function(require,module,exports){
 var UserModel = Backbone.Model.extend({
     defaults: {
@@ -17828,7 +17834,8 @@ var UserModel = Backbone.Model.extend({
         'avatarImgUrl': 'avatar.png',
         'birthday': '19700101',
         'birthplace': '東京都',
-        'introduction': 'よろしくお願いします'
+        'introduction': 'よろしくお願いします',
+        'twitter': false
     },
 
     url: '/user',

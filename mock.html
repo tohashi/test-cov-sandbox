@@ -17,6 +17,11 @@
         <div class="profile-birthday">{{formatDate birthday}}</div>
         <div class="profile-birthplace">{{birthplace}}</div>
         <textarea class="profile-introduction">{{introduction}}</textarea>
+        {{#unless twitter}}
+            <p class="profile-twitter-registration">
+                <a href="/example">Twitterアカウントを登録</a>
+            </div>
+        {{/unless}}
     </script>
 
     <script src="./bower_components/mocha/mocha.js"></script>
