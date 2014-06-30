@@ -1,8 +1,9 @@
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var browserify = require('gulp-browserify');
-var rename = require('gulp-rename');
 var connect = require('gulp-connect');
 var rimraf = require('rimraf');
+var spawn = require('child_process').spawn;
 var mochaPhantomJS = require('gulp-mocha-phantomjs');
 
 var paths = {
@@ -10,6 +11,7 @@ var paths = {
     entry:  './src/app.js',
     test:   'test/test.js',
     mock: './mock.html',
+    e2e:   'test/e2e.js',
     dest:   './dist'
 };
 
@@ -34,12 +36,17 @@ gulp.task('connect', function() {
     });
 });
 
-gulp.task
-
 gulp.task('test', function() {
     gulp.src(paths.mock)
         .pipe(mochaPhantomJS({reporter: 'spec'}));
 });
 
-gulp.task('test-server', ['test', 'connect']);
+gulp.task('e2e', ['compile', 'connect'], function () {
+    var casperChild = spawn('casperjs', ['test'].concat(paths.e2e));
+
+    casperChild.stdout.on('data', function (data) {
+        gutil.log('CasperJS:', data.toString().slice(0, -1));
+    });
+});
+
 gulp.task('default', ['compile', 'watch', 'connect']);
